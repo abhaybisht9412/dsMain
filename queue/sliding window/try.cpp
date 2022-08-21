@@ -4,7 +4,7 @@ using namespace std;
 int main(){
 queue<int> q;
 q.push(5);
-q.push(10);
+q.push(10); 
 
 q.push(100);
 q.pop();
