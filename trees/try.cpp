@@ -3,28 +3,38 @@ using namespace std;
 #define ll long long int
 int main() {
 	// your code goes here
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL) ; 
-    cout.tie(NULL)	;
-
-	ll q;
-	cin>>q;
-	while(q--){
-    int n;
-    cin>>n;
-    vector<int> v;
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        v.push_back(x);
+unordered_map<char ,int> m;
+int i=0 , j=0;
+string s;
+cin>> s;
+int n= s.size();
+int R ;
+cin>>R;
+stack<pair<char,int>> st;
+st.push(make_pair(s[0],1));
+for(int i=1;i<n;i++){
+    char ch = s[i] ;
+    if(!st.empty() && ch == st.top().first){
+        if(st.top().second+1 == R)
+        st.pop();
+        else {
+            st.top().second++ ;
+        }
     }
-    sort(v.begin(),v.end());
-    ll ans = n, maxi = INT_MAX;
-    for(int i=1;i<n;i++){
-        int temp  = __gcd(v[0],v[i]);
-        if(temp < maxi)
-        maxi = temp;
+    else {
+     st.push({ch,1});   
     }
-    cout<<maxi*n<<endl;
-	}
+}
+string ans = "";
+while(!st.empty()){
+    while (st.top().second != 0)
+    {
+        /* code */
+        ans+=st.top().first;
+        st.top().second-- ;
+    }
+    st.pop();
+}
+reverse(ans.begin(),ans.end());
+cout<<ans<<endl;
 }
