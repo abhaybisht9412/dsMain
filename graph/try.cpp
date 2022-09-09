@@ -1,20 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int countPath (vector<pair<int,int>> g[] ,int V , bool vis[]){
-
+bool isCycle(vector<int> g[], int N ,vector<bool> vis){
+    
 }
 
-int main(){
-    int N , E ;
-    cin >> N >> E ;
-    vector<pair<int,int>> g[];
-    for (int i = 0; i < E; i++)
+int main (){
+    int N,E;
+    cin >> N >> E;
+    vector<int> g[N+1];
+    for (int i = 0; i < N; i++)
     {
         /* code */
-        int u,v,w;
-        cin >> u >> v >> w;
-        g[u].push_back({v ,w });
+        int u,v;
+        cin >> u >> v;
+        g[u].push_back(v);
     }
-    cout << countPath ()
+    vector<bool> vis[N+1];
+    cout << isCycle(g,N,vis);
 }
