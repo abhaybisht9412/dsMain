@@ -7,7 +7,7 @@ class employee {
 
     public:
 
-    void setSalary(int sal){
+    void setSalary(int sal){23wq
         salary = sal; 
     }
     int sendSalary(){
